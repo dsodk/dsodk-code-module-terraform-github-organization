@@ -19,13 +19,13 @@ Terraform module for creating and managing GitHub Organizations
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_null"></a> [null](#requirement\_null) | >= 3.0 |
+| <a name="requirement_github"></a> [github](#requirement\_github) | 5.3.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_github"></a> [github](#provider\_github) | n/a |
+| <a name="provider_github"></a> [github](#provider\_github) | 5.3.0 |
 
 ## Modules
 
@@ -35,9 +35,9 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [github_organization_project.this](https://registry.terraform.io/providers/hashicorp/github/latest/docs/resources/organization_project) | resource |
-| [github_organization_settings.this](https://registry.terraform.io/providers/hashicorp/github/latest/docs/resources/organization_settings) | resource |
-| [github_organization_webhook.this](https://registry.terraform.io/providers/hashicorp/github/latest/docs/resources/organization_webhook) | resource |
+| [github_organization_project.this](https://registry.terraform.io/providers/integrations/github/5.3.0/docs/resources/organization_project) | resource |
+| [github_organization_settings.this](https://registry.terraform.io/providers/integrations/github/5.3.0/docs/resources/organization_settings) | resource |
+| [github_organization_webhook.this](https://registry.terraform.io/providers/integrations/github/5.3.0/docs/resources/organization_webhook) | resource |
 
 ## Inputs
 
@@ -57,9 +57,12 @@ No modules.
 | <a name="input_description"></a> [description](#input\_description) | The description for the GitHub Organization. (Optional) | `string` | `""` | no |
 | <a name="input_email"></a> [email](#input\_email) | The email address (example@example.com) for the GitHub Organization. (Optional) | `string` | `""` | no |
 | <a name="input_github_organization_project_body"></a> [github\_organization\_project\_body](#input\_github\_organization\_project\_body) | The body of the project. (Optional) | `string` | `""` | no |
-| <a name="input_github_organization_project_name"></a> [github\_organization\_project\_name](#input\_github\_organization\_project\_name) | The name of the project. (Required) | `string` | n/a | yes |
+| <a name="input_github_organization_project_name"></a> [github\_organization\_project\_name](#input\_github\_organization\_project\_name) | The name of the project. (Required) | `string` | `""` | no |
 | <a name="input_github_organization_webhook_active"></a> [github\_organization\_webhook\_active](#input\_github\_organization\_webhook\_active) | Indicate of the webhook should receive events. (Optional) | `bool` | `true` | no |
-| <a name="input_github_organization_webhook_config"></a> [github\_organization\_webhook\_config](#input\_github\_organization\_webhook\_config) | Map containing the config for this webhook. (Required) | `map(string)` | `{}` | no |
+| <a name="input_github_organization_webhook_config_content_type"></a> [github\_organization\_webhook\_config\_content\_type](#input\_github\_organization\_webhook\_config\_content\_type) | The content type of the webhook. [form\|json] | `string` | `"form"` | no |
+| <a name="input_github_organization_webhook_config_insecure_ssl"></a> [github\_organization\_webhook\_config\_insecure\_ssl](#input\_github\_organization\_webhook\_config\_insecure\_ssl) | Whether to allow insecure\_ssl. | `bool` | `false` | no |
+| <a name="input_github_organization_webhook_config_secret"></a> [github\_organization\_webhook\_config\_secret](#input\_github\_organization\_webhook\_config\_secret) | Secret for the Webhook | `string` | `""` | no |
+| <a name="input_github_organization_webhook_config_url"></a> [github\_organization\_webhook\_config\_url](#input\_github\_organization\_webhook\_config\_url) | The URL of the webhook | `string` | `""` | no |
 | <a name="input_github_organization_webhook_events"></a> [github\_organization\_webhook\_events](#input\_github\_organization\_webhook\_events) | A list of events which should trigger the webhook. (Optional)<br>For list of valid events, visit https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issues | `list(any)` | `[]` | no |
 | <a name="input_has_organization_projects"></a> [has\_organization\_projects](#input\_has\_organization\_projects) | Whether or not organization projects are enabled for the GitHub Organization. (Optional) | `bool` | `true` | no |
 | <a name="input_has_repository_projects"></a> [has\_repository\_projects](#input\_has\_repository\_projects) | Whether or not repository projects are enabled for the GitHub Organization. (Optional) | `bool` | `true` | no |

@@ -53,9 +53,14 @@ resource "github_organization_project" "this" {
 resource "github_organization_webhook" "this" {
   count = var.create_github_organization && var.create_github_organization_webhook ? 1 : 0
 
-  events        = var.github_organization_webhook_events
-  configuration = var.github_organization_webhook_config
+  events = var.github_organization_webhook_events
+
+  configuration {
+    url          = var.github_organization_webhook_config_url
+    content_type = var.github_organization_webhook_config_content_type
+    insecure_ssl = var.github_organization_webhook_config_insecure_ssl
+    secret       = var.github_organization_webhook_config_secret
+  }
 
   active = var.github_organization_webhook_active
-  name   = "web" # This is the type of hook. "web" is the default and only option.
 }

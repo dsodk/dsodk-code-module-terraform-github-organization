@@ -176,6 +176,7 @@ variable "create_github_organization_project" {
 variable "github_organization_project_name" {
   description = "The name of the project. (Required)"
   type        = string
+  default     = ""
 }
 
 variable "github_organization_project_body" {
@@ -194,16 +195,41 @@ variable "create_github_organization_webhook" {
   default     = false
 }
 
-variable "github_organization_webhook_config" {
-  description = "Map containing the config for this webhook. (Required)"
-  type        = map(string)
-  default     = {}
-  #type = object({
-  #  url = (string),
-  #  content_type = (string, form),  # [form|json]
-  #  insecure_ssl = (bool, false)
-  #  secret       = optional(string)
-  #})
+#variable "github_organization_webhook_config" {
+#  description = "Map containing the config for this webhook. (Required)"
+#  type        = map(string)
+#  default     = {}
+#  #type = object({
+#  #  url = (string),
+#  #  content_type = (string, form),  # [form|json]
+#  #  insecure_ssl = (bool, false)
+#  #  secret       = optional(string)
+#  #})
+#}
+
+variable "github_organization_webhook_config_url" {
+  description = "The URL of the webhook"
+  type        = string
+  default     = ""
+}
+
+variable "github_organization_webhook_config_content_type" {
+  description = "The content type of the webhook. [form|json]"
+  type        = string
+  default     = "form"
+}
+
+variable "github_organization_webhook_config_insecure_ssl" {
+  description = "Whether to allow insecure_ssl."
+  type        = bool
+  default     = false
+}
+
+variable "github_organization_webhook_config_secret" {
+  description = "Secret for the Webhook"
+  type        = string
+  default     = ""
+  sensitive   = true
 }
 
 variable "github_organization_webhook_active" {
