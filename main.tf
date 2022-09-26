@@ -40,10 +40,11 @@ resource "github_organization_settings" "this" {
 ##################################################
 
 resource "github_organization_project" "this" {
-  count = var.create_github_organization && var.create_github_organization_project ? 1 : 0
+  #count = var.create_github_organization && var.create_github_organization_project ? 1 : 0
+  for_each = var.create_github_organization_project ? var.github_organization_projects : {}
 
-  name = var.github_organization_project_name
-  body = var.github_organization_project_body
+  name = each.key
+  body = try(each.value.body, null)
 }
 
 ##################################################
@@ -51,16 +52,17 @@ resource "github_organization_project" "this" {
 ##################################################
 
 resource "github_organization_webhook" "this" {
-  count = var.create_github_organization && var.create_github_organization_webhook ? 1 : 0
+  #count = var.create_github_organization && var.create_github_organization_webhook ? 1 : 0
+  for_each = var.create_github_organization_webhook ? var.github_organization_webhooks : {}
 
-  events = var.github_organization_webhook_events
+  events = each.value.events
 
   configuration {
-    url          = var.github_organization_webhook_config_url
-    content_type = var.github_organization_webhook_config_content_type
-    insecure_ssl = var.github_organization_webhook_config_insecure_ssl
-    secret       = var.github_organization_webhook_config_secret
+    url          = each.value.configuration.url
+    content_type = each.value.configuration.content_type
+    insecure_ssl = try(each.value.configuration.insecure_ssl, false)
+    secret       = try(each.value.configuration.secret, null)
   }
 
-  active = var.github_organization_webhook_active
+  active = try(each.value.active, true)
 }

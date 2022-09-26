@@ -168,21 +168,30 @@ variable "secret_scanning_push_protection_enabled_for_new_repositories" {
 ##################################################
 
 variable "create_github_organization_project" {
-  description = "Whether to create projects in the GitHub Organization."
+  description = "Whether to create Projects in the GitHub Organization."
   type        = bool
   default     = false
 }
 
-variable "github_organization_project_name" {
-  description = "The name of the project. (Required)"
-  type        = string
-  default     = ""
-}
+variable "github_organization_projects" {
+  description = "Map of GitHub Organization Projects to create. (Optional)"
+  type        = map(any)
+  default     = {}
 
-variable "github_organization_project_body" {
-  description = "The body of the project. (Optional)"
-  type        = string
-  default     = ""
+  # type = object({
+  #   name = object({
+  #     body = optional(string)
+  #   })
+  # })
+
+  # github_organization_projects = {
+  #   my_org_project_name = {
+  #     body = "My Project Body"
+  #   },
+  #   my_org_project_name_2 = {
+  #     body = "My Project Body 2"
+  #   },
+  # }
 }
 
 ##################################################
@@ -190,59 +199,27 @@ variable "github_organization_project_body" {
 ##################################################
 
 variable "create_github_organization_webhook" {
-  description = "Whether to create webhooks in the GitHub Organization."
+  description = "Whether to create Webhooks in the GitHub Organization."
   type        = bool
   default     = false
 }
 
-#variable "github_organization_webhook_config" {
-#  description = "Map containing the config for this webhook. (Required)"
-#  type        = map(string)
-#  default     = {}
-#  #type = object({
-#  #  url = (string),
-#  #  content_type = (string, form),  # [form|json]
-#  #  insecure_ssl = (bool, false)
-#  #  secret       = optional(string)
-#  #})
-#}
-
-variable "github_organization_webhook_config_url" {
-  description = "The URL of the webhook"
-  type        = string
-  default     = ""
-}
-
-variable "github_organization_webhook_config_content_type" {
-  description = "The content type of the webhook. [form|json]"
-  type        = string
-  default     = "form"
-}
-
-variable "github_organization_webhook_config_insecure_ssl" {
-  description = "Whether to allow insecure_ssl."
-  type        = bool
-  default     = false
-}
-
-variable "github_organization_webhook_config_secret" {
-  description = "Secret for the Webhook"
-  type        = string
-  default     = ""
-  sensitive   = true
-}
-
-variable "github_organization_webhook_active" {
-  description = "Indicate of the webhook should receive events. (Optional)"
-  type        = bool
-  default     = true
-}
-
-variable "github_organization_webhook_events" {
+variable "github_organization_webhooks" {
   description = <<-EOT
-A list of events which should trigger the webhook. (Optional)
-For list of valid events, visit https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issues
+    Map of GitHub Organization Webhooks to create. (Optional)
+    For list of valid events, visit https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issues
 EOT
-  type        = list(any)
-  default     = []
+  type        = map(any)
+  default     = {}
+
+  # type = object({
+  #   events = (list[any])
+  #   configuration = object({
+  #     url = (string)
+  #     content_type = (string, form) # The content type of the webhook. [form|json]
+  #     insecure_ssl = optional(bool, false)
+  #     secret       = optional(string)
+  #   })
+  #   active = optional(bool, true)
+  # })
 }

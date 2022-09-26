@@ -34,7 +34,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_github_organization_settings"></a> [github\_organization\_settings](#module\_github\_organization\_settings) | ../ | n/a |
+| <a name="module_github_organizations"></a> [github\_organizations](#module\_github\_organizations) | ../.. | n/a |
 
 ## Resources
 
@@ -45,8 +45,8 @@ No resources.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_billing_email"></a> [billing\_email](#input\_billing\_email) | The billing email address for the GitHub Organization. (Required) | `string` | n/a | yes |
-| <a name="input_owner"></a> [owner](#input\_owner) | Target GitHub organization or individual user account to manage. (Required) | `string` | n/a | yes |
-| <a name="input_token"></a> [token](#input\_token) | GitHub API Auth using OAuth or Personal Access Token. (Required) | `string` | n/a | yes |
+| <a name="input_github_owner"></a> [github\_owner](#input\_github\_owner) | Target GitHub organization or individual user account to manage. (Required) | `string` | n/a | yes |
+| <a name="input_github_token"></a> [github\_token](#input\_github\_token) | GitHub API Auth using OAuth or Personal Access Token. (Required) | `string` | n/a | yes |
 
 ## Outputs
 
