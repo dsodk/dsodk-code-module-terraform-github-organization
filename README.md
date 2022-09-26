@@ -48,22 +48,16 @@ No modules.
 | <a name="input_blog_url"></a> [blog\_url](#input\_blog\_url) | The blog URL (https://example.com) for the GitHub Organization. (Optional) | `string` | `""` | no |
 | <a name="input_company"></a> [company](#input\_company) | The company name for the GitHub Organization. (Optional) | `string` | `""` | no |
 | <a name="input_create_github_organization"></a> [create\_github\_organization](#input\_create\_github\_organization) | Whether to create the GitHub Organization. | `bool` | `true` | no |
-| <a name="input_create_github_organization_project"></a> [create\_github\_organization\_project](#input\_create\_github\_organization\_project) | Whether to create projects in the GitHub Organization. | `bool` | `false` | no |
-| <a name="input_create_github_organization_webhook"></a> [create\_github\_organization\_webhook](#input\_create\_github\_organization\_webhook) | Whether to create webhooks in the GitHub Organization. | `bool` | `false` | no |
+| <a name="input_create_github_organization_project"></a> [create\_github\_organization\_project](#input\_create\_github\_organization\_project) | Whether to create Projects in the GitHub Organization. | `bool` | `false` | no |
+| <a name="input_create_github_organization_webhook"></a> [create\_github\_organization\_webhook](#input\_create\_github\_organization\_webhook) | Whether to create Webhooks in the GitHub Organization. | `bool` | `false` | no |
 | <a name="input_default_repository_permission"></a> [default\_repository\_permission](#input\_default\_repository\_permission) | The default permission [read\|write\|admin\|none] for GitHub Organization members to create new repositories . (Optional) | `string` | `"read"` | no |
 | <a name="input_dependabot_alerts_enabled_for_new_repositories"></a> [dependabot\_alerts\_enabled\_for\_new\_repositories](#input\_dependabot\_alerts\_enabled\_for\_new\_repositories) | Whether or not dependabot alerts are enabled for new repositories. (Optional) | `bool` | `false` | no |
 | <a name="input_dependabot_security_updates_enabled_for_new_repositories"></a> [dependabot\_security\_updates\_enabled\_for\_new\_repositories](#input\_dependabot\_security\_updates\_enabled\_for\_new\_repositories) | Whether or not dependabot security updates are enabled for new repositories. (Optional) | `bool` | `false` | no |
 | <a name="input_dependency_graph_enabled_for_new_repositories"></a> [dependency\_graph\_enabled\_for\_new\_repositories](#input\_dependency\_graph\_enabled\_for\_new\_repositories) | Whether or not dependency graph is enabled for new repositories. (Optional) | `bool` | `false` | no |
 | <a name="input_description"></a> [description](#input\_description) | The description for the GitHub Organization. (Optional) | `string` | `""` | no |
 | <a name="input_email"></a> [email](#input\_email) | The email address (example@example.com) for the GitHub Organization. (Optional) | `string` | `""` | no |
-| <a name="input_github_organization_project_body"></a> [github\_organization\_project\_body](#input\_github\_organization\_project\_body) | The body of the project. (Optional) | `string` | `""` | no |
-| <a name="input_github_organization_project_name"></a> [github\_organization\_project\_name](#input\_github\_organization\_project\_name) | The name of the project. (Required) | `string` | `""` | no |
-| <a name="input_github_organization_webhook_active"></a> [github\_organization\_webhook\_active](#input\_github\_organization\_webhook\_active) | Indicate of the webhook should receive events. (Optional) | `bool` | `true` | no |
-| <a name="input_github_organization_webhook_config_content_type"></a> [github\_organization\_webhook\_config\_content\_type](#input\_github\_organization\_webhook\_config\_content\_type) | The content type of the webhook. [form\|json] | `string` | `"form"` | no |
-| <a name="input_github_organization_webhook_config_insecure_ssl"></a> [github\_organization\_webhook\_config\_insecure\_ssl](#input\_github\_organization\_webhook\_config\_insecure\_ssl) | Whether to allow insecure\_ssl. | `bool` | `false` | no |
-| <a name="input_github_organization_webhook_config_secret"></a> [github\_organization\_webhook\_config\_secret](#input\_github\_organization\_webhook\_config\_secret) | Secret for the Webhook | `string` | `""` | no |
-| <a name="input_github_organization_webhook_config_url"></a> [github\_organization\_webhook\_config\_url](#input\_github\_organization\_webhook\_config\_url) | The URL of the webhook | `string` | `""` | no |
-| <a name="input_github_organization_webhook_events"></a> [github\_organization\_webhook\_events](#input\_github\_organization\_webhook\_events) | A list of events which should trigger the webhook. (Optional)<br>For list of valid events, visit https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issues | `list(any)` | `[]` | no |
+| <a name="input_github_organization_projects"></a> [github\_organization\_projects](#input\_github\_organization\_projects) | Map of GitHub Organization Projects to create. (Optional) | `map(any)` | `{}` | no |
+| <a name="input_github_organization_webhooks"></a> [github\_organization\_webhooks](#input\_github\_organization\_webhooks) | Map of GitHub Organization Webhooks to create. (Optional)<br>For list of valid events, visit https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issues | `map(any)` | `{}` | no |
 | <a name="input_has_organization_projects"></a> [has\_organization\_projects](#input\_has\_organization\_projects) | Whether or not organization projects are enabled for the GitHub Organization. (Optional) | `bool` | `true` | no |
 | <a name="input_has_repository_projects"></a> [has\_repository\_projects](#input\_has\_repository\_projects) | Whether or not repository projects are enabled for the GitHub Organization. (Optional) | `bool` | `true` | no |
 | <a name="input_location"></a> [location](#input\_location) | The location for the GitHub Organization. (Optional) | `string` | `""` | no |
@@ -85,9 +79,9 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_github_organization_project_url"></a> [github\_organization\_project\_url](#output\_github\_organization\_project\_url) | The URL of the project |
-| <a name="output_github_organization_settings_id"></a> [github\_organization\_settings\_id](#output\_github\_organization\_settings\_id) | The ID of the organization settings |
-| <a name="output_github_organization_webhook_url"></a> [github\_organization\_webhook\_url](#output\_github\_organization\_webhook\_url) | The URL of the webhook |
+| <a name="output_organization_project_url"></a> [organization\_project\_url](#output\_organization\_project\_url) | The URL of the project |
+| <a name="output_organization_settings_id"></a> [organization\_settings\_id](#output\_organization\_settings\_id) | The ID of the organization settings |
+| <a name="output_organization_webhook_url"></a> [organization\_webhook\_url](#output\_organization\_webhook\_url) | The URL of the webhook |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Authors
