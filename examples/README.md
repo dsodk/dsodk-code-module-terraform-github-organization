@@ -24,7 +24,7 @@ After testing with this example is completed, run ```$ terraform destroy```
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_null"></a> [null](#requirement\_null) | >= 3.0 |
+| <a name="requirement_github"></a> [github](#requirement\_github) | 5.3.0 |
 
 ## Providers
 
@@ -34,7 +34,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_template_null_resource"></a> [template\_null\_resource](#module\_template\_null\_resource) | ../ | n/a |
+| <a name="module_github_organization_settings"></a> [github\_organization\_settings](#module\_github\_organization\_settings) | ../ | n/a |
 
 ## Resources
 
@@ -42,11 +42,13 @@ No resources.
 
 ## Inputs
 
-No inputs.
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_billing_email"></a> [billing\_email](#input\_billing\_email) | The billing email address for the GitHub Organization. (Required) | `string` | n/a | yes |
+| <a name="input_owner"></a> [owner](#input\_owner) | Target GitHub organization or individual user account to manage. (Required) | `string` | n/a | yes |
+| <a name="input_token"></a> [token](#input\_token) | GitHub API Auth using OAuth or Personal Access Token. (Required) | `string` | n/a | yes |
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| <a name="output_template_null_resource_id"></a> [template\_null\_resource\_id](#output\_template\_null\_resource\_id) | The ID of the null resource |
+No outputs.
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
