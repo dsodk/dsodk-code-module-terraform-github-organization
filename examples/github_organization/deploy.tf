@@ -1,29 +1,26 @@
 provider "github" {
 
-  token = var.github_token # GITHUB_TOKEN    - GitHub API Auth using OAuth or Personal Access Token
-  #base_url = var.github_base_url # GITHUB_BASE_URL - Target GitHub base API endpoint. Required for GitHub Enterprise
-  owner = var.github_owner # GITHUB_OWNER    - Target GitHub organization or individual user account to manage
+  token = var.github_token                     # GITHUB_TOKEN    - GitHub API Auth using OAuth or Personal Access Token
+  owner = "dsodk-test-module-terraform-github" # GITHUB_OWNER    - Target GitHub organization or individual user account to manage
+  #base_url = var.github_base_url              # GITHUB_BASE_URL - Target GitHub base API endpoint. Required for GitHub Enterprise
 
   #write_delay_ms = try(var.github_write_delay_ms, 1000) # Milliseconds to sleep between write ops for GitHub API Rate Limit
   #read_delay_ms  = try(var.github_read_delay_ms, 0)     # Milliseconds to sleep between read ops for GitHub API Rate Limit
 }
 
-locals {
-  billing_email = var.billing_email
-}
 ##################################################
 # GitHub Organization
 ##################################################
 
-module "github_organizations" {
-  source = "../.."
+module "github_organization" {
+  source = "../../modules/github_organization"
 
-  billing_email = local.billing_email
-  company       = "dsodk"
-  email         = "terraform.module.test@dsodk.io"
-  name          = "dsodk-test-github-org-module"
+  billing_email = var.billing_email
+  company       = "dsodk.io"
+  email         = "module.terraform.github.test@dsodk.io"
+  name          = "dsodk-test-module-terraform-github"
   location      = "Global"
-  description   = "Test organization used by example in dsodk-code-module-terraform-github-organization"
+  description   = "Test github resources used in examples of this terraform module project: dsodk-module-terraform-github"
 
   default_repository_permission = "read"
 
