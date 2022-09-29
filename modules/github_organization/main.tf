@@ -5,14 +5,15 @@
 resource "github_organization_settings" "this" {
   count = var.create_github_organization ? 1 : 0
 
-  billing_email                 = var.billing_email
-  company                       = var.company
-  blog                          = var.blog_url
-  email                         = var.email
-  twitter_username              = var.twitter_username
-  location                      = var.location
-  name                          = var.name
-  description                   = var.description
+  billing_email    = var.billing_email
+  company          = var.company
+  blog             = var.blog_url
+  email            = var.email
+  twitter_username = var.twitter_username
+  location         = var.location
+  name             = var.name
+  description      = var.description
+
   has_organization_projects     = var.has_organization_projects
   has_repository_projects       = var.has_repository_projects
   default_repository_permission = var.default_repository_permission
@@ -25,8 +26,8 @@ resource "github_organization_settings" "this" {
   members_can_create_public_pages          = var.members_can_create_public_pages
   members_can_create_private_pages         = var.members_can_create_private_pages
   members_can_fork_private_repositories    = var.members_can_fork_private_repositories
+  web_commit_signoff_required              = var.web_commit_signoff_required
 
-  web_commit_signoff_required                                  = var.web_commit_signoff_required
   advanced_security_enabled_for_new_repositories               = var.advanced_security_enabled_for_new_repositories
   dependabot_alerts_enabled_for_new_repositories               = var.dependabot_alerts_enabled_for_new_repositories
   dependabot_security_updates_enabled_for_new_repositories     = var.dependabot_security_updates_enabled_for_new_repositories

@@ -1,4 +1,4 @@
-# DSODK - Terraform Module for GitHub Organizations
+# DSODK - Terraform Module for GitHub
 
 Terraform module for creating and managing GitHub Organizations
 

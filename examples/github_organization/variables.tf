@@ -8,11 +8,6 @@ variable "github_token" {
   sensitive   = true
 }
 
-variable "github_owner" {
-  description = "Target GitHub organization or individual user account to manage. (Required)"
-  type        = string
-}
-
 ##################################################
 # GitHub Organization
 ##################################################
