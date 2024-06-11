@@ -18,6 +18,6 @@ resource "github_repository" "this" {
   archived               = var.archived
   archive_on_destroy     = var.archive_on_destroy
   #pages                  = try(var.pages, {})
-  topics                 = var.topics
+  topics = var.topics
   #template               = try(var.template, {})
 }
