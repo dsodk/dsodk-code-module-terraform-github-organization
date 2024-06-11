@@ -1,6 +1,6 @@
-# DSODK - Terraform Module for GitHub
+# OpenCEPK - Terraform/OpenTofu Module for GitHub
 
-Terraform module for creating and managing GitHub Organizations
+Terraform/OpenTofu module for creating and managing GitHub Organizations, Repositories, Projects and more.
 
 ## Features
 

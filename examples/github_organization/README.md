@@ -1,4 +1,4 @@
-# DSODK - DevSecOps Dev Kit - Github Terraform Module Example
+# OpenCEPK - Open Cloud Engineering Platform Kit - Github Terraform Module Example
 
 Default Terraform Module Example README
 
